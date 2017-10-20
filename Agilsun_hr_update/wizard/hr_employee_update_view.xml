@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="update_employee_view" model="ir.ui.view">
+            <field name="name">update.employee.form</field>
+            <field name="model">update.employee</field>
+            <field name="arch" type="xml">
+                <form string="Update Mass">
+                    <notebook colspan="4">
+                        <page string="Export">
+                            <group>
+                                <group>
+                                <field name="title" widget='radio'/>
+
+                                <field name="list_emp" />
+                                </group>
+                                <group>
+                                <button string="Export"  name="action_export" type="object" class="oe_highlight"/>
+                                <button string="Cancel" class="oe_link" special="cancel"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Update">
+                            <group>
+                                <field name="filename" invisible="1" />
+                                <field name="file" filename="filename" colspan="0" class="oe_inline"
+                                       style="padding-top: 1px" />
+                            </group>
+
+                                 <button string="Update" name="bt_update_emp" type="object" class="oe_highlight"/>
+
+
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_update_employee_view" model="ir.actions.act_window">
+            <field name="name">Employee Update</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">update.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="update_employee_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="update_emp_menu" name="Mass Employee Update"
+                  sequence="2" parent="Agilsun_hr.a_manage_employee"
+                  groups="vhr_human_resource.vhr_cb_profile"
+                  action="act_update_employee_view"
+
+        />
+
+    </data>
+</openerp>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+    <menuitem id="menu_hr_update" name="Employee Update"
+                  parent="hr.menu_hr_root"
+                  sequence="42"
+         groups="base.group_no_one" />
+    </data>
+</openerp>
